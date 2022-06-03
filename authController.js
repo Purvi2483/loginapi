@@ -35,7 +35,7 @@ router.post('/register', (req,res)=>{
 
 //login user
 router.post('/login',(req,res)=> {
-    user.findOne({email:req.body.email},(err,user)=>{
+    User.findOne({email:req.body.email},(err,user)=>{
         if(err)return res.status(500).send({auth:false,token:'Error while login'})
         if(!user) return res.status(200).send({auth:false,token:'No User Found Register First'})
         else{
