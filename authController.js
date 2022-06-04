@@ -55,7 +55,7 @@ router.get('/userinfo',(req,res)=>{
     //verify Token
     jwt.verify(token,config.secret,(err,user)=> {
         if(err) res.status(200).send({auth:false,token:'Invalid Token'})
-        User.findById(user_id,(err,result)=>{
+        User.findById(user.id,(err,result)=>{
             res.send(result)
         })
     })
